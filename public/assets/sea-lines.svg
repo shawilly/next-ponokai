@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150" viewBox="0 0 515 515">
+  <defs>
+    <linearGradient id="a" x1="0%" x2="100%" y1="50%" y2="50%">
+      <stop offset="0%" stop-color="#ff8c9a"/>
+      <stop offset="40%" stop-color="#b4e49a"/>
+    </linearGradient>
+    <linearGradient id="b" x1="0%" x2="100%" y1="50%" y2="50%">
+      <stop offset="0%" stop-color="#f8e7b0"/>
+      <stop offset="25%" stop-color="#f3bb9a"/>
+    </linearGradient>
+    <linearGradient id="c" x1="0%" x2="100%" y1="50%" y2="50%">
+      <stop offset="0%" stop-color="#98d4e7"/>
+      <stop offset="25%" stop-color="#bdb2ff"/>
+    </linearGradient>
+    <clipPath id="clipCircle">
+      <circle cx="256" cy="256" r="256" />
+    </clipPath>
+  </defs>
+  <circle cx="256" cy="256" r="256" fill="#9da1af" />
+  <g clip-path="url(#clipCircle)">
+    <path fill="url(#a)" fill-opacity="1" d="M0 700V105c60.92822967-21.77033493 121.85645933-43.54066986 236-30 114.14354067 13.54066986 281.50239234 62.3923445 383 76 101.49760766 13.6076555 137.1339713-8.02870813 225-17 87.8660287-8.97129187 227.96172249-5.27751196 336-8s184.01913876-11.86124402 260-21v550H0Z" class="transition-all duration-300 ease-in-out delay-150 path-0"/>
+    <path fill="url(#b)" fill-opacity="1" d="M0 700V245c104.23923445-15.27272727 208.4784689-30.54545455 311-38 102.5215311-7.45454545 203.32535885-7.0909091 303 10 99.67464115 17.0909091 198.2200507 50.9090909 277 50 78.7799043-.9090909 137.79425837-36.54545455 226-46 88.20574163-9.45454545 205.60287081 7.27272727 323 24v455H0Z" class="transition-all duration-300 ease-in-out delay-150 path-1"/>
+    <path fill="url(#c)" fill-opacity="1" d="M0 700V385c90.75598086-31.88516746 181.51196172-63.77033493 273-48 91.48803828 15.77033493 183.70813397 79.19617225 291 100 107.29186603 20.80382775 229.6555024-1.01435407 323-16 93.3444976-14.98564593 157.66985646-23.13875598 245-28 87.33014354-4.86124402 197.66507177-6.43062201 308-8v315H0Z" class="transition-all duration-300 ease-in-out delay-150 path-2"/>
+  </g>
+</svg>
