@@ -8,9 +8,14 @@ import { type StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import Select, { type PropsValue, type ActionMeta } from "react-select";
+import Select, { type ActionMeta } from "react-select";
 import Editor from "react-simple-code-editor";
-import { LANGUAGE, highlightFunctions, samples } from "./code-block/samples";
+import {
+  LANGUAGE,
+  highlightFunctions,
+  samples,
+  typescriptDemo,
+} from "./code-block/samples";
 
 interface LanguageOption {
   value: LANGUAGE;

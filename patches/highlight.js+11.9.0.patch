@@ -1382,10 +1382,10 @@ index d2b0bac..4ac2b99 100644
  
    for (const key in MODES) {
 diff --git a/node_modules/highlight.js/styles/monokai-sublime.css b/node_modules/highlight.js/styles/monokai-sublime.css
-index b469dd4..588a2c8 100644
+index b469dd4..6fedeb5 100644
 --- a/node_modules/highlight.js/styles/monokai-sublime.css
 +++ b/node_modules/highlight.js/styles/monokai-sublime.css
-@@ -1,76 +1,113 @@
+@@ -1,76 +1,109 @@
  pre code.hljs {
    display: block;
    overflow-x: auto;
@@ -1441,7 +1441,9 @@ index b469dd4..588a2c8 100644
 +.hljs-selector-class,
 +.hljs-type,
 +.hljs-variable,
-+.hljs-template-variable {
++.hljs-template-variable,
++.hljs-title,
++.hljs-function {
 +  color: #b4e49a; /* green */
  }
 +
@@ -1452,7 +1454,6 @@ index b469dd4..588a2c8 100644
 +
  .hljs-emphasis {
 -  font-style: italic
-+  color: #98d4e7; /* blue */
 +  font-style: italic;
  }
 +
@@ -1461,7 +1462,6 @@ index b469dd4..588a2c8 100644
 -.hljs-name,
 -.hljs-attr {
 -  color: #f92672
-+.custom-symbols,
 +.hljs-name {
 +  color: #ff8c9a; /* red */
  }
@@ -1507,10 +1507,6 @@ index b469dd4..588a2c8 100644
  .hljs-meta {
 -  color: #75715e
 +  color: #9da1af; /* grey_dim */
-+}
-+
-+.hljs-function .hljs-title {
-+  color: #b4e49a; /* green */
 +}
 +
 +.hljs-variable.language_ {

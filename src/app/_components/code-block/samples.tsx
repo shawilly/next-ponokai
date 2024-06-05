@@ -31,8 +31,13 @@ const classes = (input: string): string => {
   return input.replace(stringFunctionRegex, "hljs-type hljs-emphasis");
 };
 
+const functions = (input: string): string => {
+  const stringFunctionRegex = /hljs-title\sfunction_/g;
+  return input.replace(stringFunctionRegex, "hljs-section");
+};
+
 const modifyHighlight = (input: string): string => {
-  const funcs = [equals, classes];
+  const funcs = [equals, classes, functions];
   return funcs.reduce((acc, func) => func(acc), input);
 };
 
