@@ -7,6 +7,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ["var(--font-geist-sans)", ...fontFamily.sans],
+        jetbrains: ["JetBrains Mono", "monospace"],
       },
       colors: {
         black: "#181a1c",

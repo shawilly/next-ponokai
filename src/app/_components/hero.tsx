@@ -1,67 +1,145 @@
+"use client";
+import AdventureIcon from "@/_components/adventure-icon";
 import neovimSmallLogo from "@/assets/neovim-small-logo.svg";
 import ponokaiLogo from "@/assets/ponokai-logo-with-icon.svg";
 import vimLogo from "@/assets/vim-logo.svg";
-import AdventureIcon from "@/_components/adventure-icon";
+import { motion } from "framer-motion";
 import { type StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import Select, { type PropsValue, type ActionMeta } from "react-select";
+import Editor from "react-simple-code-editor";
+import { LANGUAGE, highlightFunctions, samples } from "./code-block/samples";
 
-const Hero = () => {
+interface LanguageOption {
+  value: LANGUAGE;
+  label: string;
+}
+
+const options = Object.values(LANGUAGE).map(
+  (value: LANGUAGE): LanguageOption => ({
+    value: value,
+    label: value,
+  }),
+);
+
+const Hero = (): JSX.Element => {
+  const [language, setLanguage] = useState(LANGUAGE.TS);
+  const [languageDemo, setDemo] = useState(samples[LANGUAGE.TS]);
+
+  const handleLanguageChange = (
+    option: LanguageOption | null,
+    _actionMeta: ActionMeta<LanguageOption>,
+  ): void => {
+    if (!option) return;
+    setLanguage(option.value);
+    setDemo(samples[option.value]);
+  };
+
   return (
-    <div>
-      <div className="lg:g-16 lg:ml-16 lg:mr-16 lg:grid lg:grid-cols-2 lg:pl-16 lg:pr-16">
-        <div className="ml-12 mr-12 flex flex-col pb-12 pt-12 md:ml-16 md:mr-16 md:pb-16 md:pt-16">
+    <div className="max-w-screen text-fit grid max-h-screen grid-flow-row overflow-auto lg:ml-16 lg:mr-16 lg:grid-cols-2 lg:gap-16 lg:pl-16 lg:pr-16">
+      <div className="flex h-screen flex-col items-start gap-[4rem] py-20">
+        <div className="box-border grow-0 items-start">
           <Link href="https://github.com/shawilly/ponokai" target="_blank">
-            <div className="flex h-1/4 flex-row flex-wrap items-center justify-start">
-              <Image
-                priority
-                height={40}
-                src={ponokaiLogo as StaticImport}
-                alt="Ponokai, the pastelly Monokaiesque color scheme"
-              />
-            </div>
+            <Image
+              priority
+              height={40}
+              src={ponokaiLogo as StaticImport}
+              alt="Ponokai, the pastelly Monokaiesque color scheme"
+            />
           </Link>
-          <div className="h-5/8 mb-12 mt-12 flex grow flex-col flex-wrap items-center justify-center pb-12 pt-12 ">
-            <div className="flex flex-col flex-wrap justify-center gap-5 text-left">
-              <h1 className="from-pred to-pyellow bg-gradient-to-r bg-clip-text text-7xl font-black text-transparent">
-                A pastelly Monokaiesque color scheme
-              </h1>
-              <p className="text-left text-2xl">
-                Consistent <span className="text-pgreen">c</span>
-                <span className="text-pred">o</span>
-                <span className="text-porange">l</span>
-                <span className="text-pyellow">o</span>
-                <span className="text-pgreen">r</span>
-                <span className="text-ppurple">s</span>, constant{" "}
-                <span className="text-pgreen">(pono)</span> sea{" "}
-                <span className="text-pblue">(kai)</span>
-              </p>
-            </div>
-          </div>
         </div>
+        <div className="flex grow flex-col items-start justify-center gap-5">
+          <motion.h1
+            className="from-pred to-pyellow bg-gradient-to-r bg-clip-text font-black text-transparent [font-size:_clamp(3em,5vw,4.5rem)]"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
+            A pastelly Monokaiesque color scheme
+          </motion.h1>
+          <motion.p
+            className="font-jetbrains text-2xl"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
+          >
+            <span className="text-pgreen">Pono</span>
+            <span className="text-pblue">kai</span>{" "}
+            <span className="text-pgreen">c</span>
+            <span className="text-pred">o</span>
+            <span className="text-porange">l</span>
+            <span className="text-pyellow">o</span>
+            <span className="text-pgreen">r</span>
+            <span className="text-ppurple">s</span>.
+            <br />
+            <span className="text-pgreen">(constant)</span>
+            <span className="text-pblue">(sea)</span>
+          </motion.p>
+        </div>
+      </div>
 
-        <div>
-          <div className="flex h-screen flex-col items-center justify-center">
-            <div className="container flex flex-col gap-12">
-              <div className="from-pblue via-fg to-pgreen inline-block bg-gradient-to-r bg-clip-text text-center font-extrabold text-transparent sm:text-[2rem]">
-                choose your weapon.
-              </div>
-              <div className="mt-10 flex flex-row flex-wrap items-center justify-around md:mt-0">
-                <AdventureIcon
-                  className="h-[150px] w-[150px]"
-                  href=""
-                  src={neovimSmallLogo as StaticImport}
-                  alt="Neovim logo"
-                />
-                <AdventureIcon
-                  className="h-[150px] w-[150px]"
-                  href=""
-                  src={vimLogo as StaticImport}
-                  alt="Vim logo"
-                />
-              </div>
-            </div>
+      <div className="flex w-full grow items-center justify-center py-20">
+        <div className="bg-bg0 font-jetbrains flex w-full flex-col items-start justify-center rounded-l-md rounded-r-md p-4">
+          <div className="text-bg1 w-full place-items-end pb-4">
+            <Select
+              defaultInputValue={language}
+              options={options}
+              isSearchable
+              onChange={handleLanguageChange}
+              styles={{
+                control: (styles) => ({
+                  ...styles,
+                  backgroundColor: "#181a1c",
+                  color: "black",
+                }),
+                option: (styles, { isFocused }) => ({
+                  ...styles,
+                  backgroundColor: isFocused ? "#818f80" : "#1a1a1a",
+                  color: "#f2f2f3",
+                }),
+                singleValue: (styles) => ({
+                  ...styles,
+                  color: "#f2f2f3",
+                }),
+                input: (styles) => ({
+                  ...styles,
+                  color: "#f2f2f3",
+                }),
+              }}
+            />
           </div>
+          <Editor
+            value={languageDemo}
+            className="text-2xl"
+            onValueChange={(code: string) => setDemo(code)}
+            highlight={(code) => highlightFunctions[language](code)}
+            padding={10}
+          />
+          <motion.div
+            className="mb-2 flex flex-row items-center justify-start gap-4"
+            initial={{ x: 1000 }}
+            animate={{ x: 0 }}
+            transition={{ delay: 0.5 }}
+          >
+            <AdventureIcon
+              className="w-[9%]"
+              href="/docs"
+              src={neovimSmallLogo as StaticImport}
+              alt="Neovim logo"
+            />
+            <AdventureIcon
+              className="w-[9%]"
+              href="/docs"
+              src={vimLogo as StaticImport}
+              alt="Vim logo"
+            />
+          </motion.div>
+          <span className="text-xs font-light italic">
+            *just a taste; accurate highlighting is best experienced in your
+            editor
+          </span>
         </div>
       </div>
     </div>
