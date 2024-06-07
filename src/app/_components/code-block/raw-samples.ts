@@ -159,13 +159,18 @@ print("The result is:", result)
 `,
   sql: `SELECT "Hello World";`,
   swift: `println("Hello, world!")`,
-  tsx: `import * as React from "react";
+  tsx: `
+import React, { useState } from 'react';
 
-export class HelloWorld extends React.Component<any, any> {
-    render() {
-        return <div>Hello world!It's from Helloword Component.</div>;
-    }
-}`,
+const Counter: React.FC = () => {
+  const [count, setCount] = useState(0);
+  return <button onClick={() => setCount(count + 1)}>
+          Count: {count}
+         </button>;
+};
+
+export default Counter;
+`,
   typescript: `
 const answer = String(JSON.stringify(42)); 
 

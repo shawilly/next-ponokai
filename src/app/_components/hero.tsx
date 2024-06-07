@@ -10,12 +10,7 @@ import Link from "next/link";
 import { useState } from "react";
 import Select, { type ActionMeta } from "react-select";
 import Editor from "react-simple-code-editor";
-import {
-  LANGUAGE,
-  highlightFunctions,
-  samples,
-  typescriptDemo,
-} from "./code-block/samples";
+import { LANGUAGE, highlightFunctions, samples } from "./code-block/samples";
 
 interface LanguageOption {
   value: LANGUAGE;
@@ -28,6 +23,8 @@ const options = Object.values(LANGUAGE).map(
     label: value,
   }),
 );
+
+console.log(options);
 
 const Hero = (): JSX.Element => {
   const [language, setLanguage] = useState(LANGUAGE.TS);
@@ -86,7 +83,7 @@ const Hero = (): JSX.Element => {
       </div>
 
       <div className="flex w-full grow items-center justify-center py-20">
-        <div className="bg-bg0 font-jetbrains flex w-full flex-col items-start justify-center rounded-l-md rounded-r-md p-4">
+        <div className="font-jetbrains flex w-full flex-col items-start justify-center rounded-l-md rounded-r-md bg-black p-4">
           <div className="text-bg1 w-full place-items-end pb-4">
             <Select
               defaultInputValue={language}
@@ -117,26 +114,29 @@ const Hero = (): JSX.Element => {
           </div>
           <Editor
             value={languageDemo}
-            className="text-2xl"
+            className="bg-bg0 font-jetbrains text-l my-4 h-[100%] min-h-[100px] min-w-[100%] overflow-auto rounded-l-md rounded-r-md p-4"
             onValueChange={(code: string) => setDemo(code)}
             highlight={(code) => highlightFunctions[language](code)}
             padding={10}
+            placeholder="Type some code..."
           />
           <motion.div
-            className="mb-2 flex flex-row items-center justify-start gap-4"
+            className="my-2 flex flex-row items-center justify-start gap-4"
             initial={{ x: 1000 }}
             animate={{ x: 0 }}
             transition={{ delay: 0.5 }}
           >
             <AdventureIcon
               className="w-[9%]"
-              href="/docs"
+              href="https://github.com/shawilly/ponokai?tab=readme-ov-file#neovim"
+              target="_blank"
               src={neovimSmallLogo as StaticImport}
               alt="Neovim logo"
             />
             <AdventureIcon
               className="w-[9%]"
-              href="/docs"
+              href="https://github.com/shawilly/ponokai?tab=readme-ov-file#vim"
+              target="_blank"
               src={vimLogo as StaticImport}
               alt="Vim logo"
             />

@@ -1,8 +1,9 @@
+// TODO: add html, jsx, tsx when hljs hack is fixed
 import hljs from "highlight.js/lib/core";
 import javascript from "highlight.js/lib/languages/javascript";
 import python from "highlight.js/lib/languages/python";
 import typescript from "highlight.js/lib/languages/typescript";
-import xml from "highlight.js/lib/languages/xml";
+// import xml from "highlight.js/lib/languages/xml";
 import { raw_samples } from "./raw-samples";
 import { marked } from "marked";
 import { type ReactNode } from "react";
@@ -11,15 +12,15 @@ export enum LANGUAGE {
   JS = "javascript",
   TS = "typescript",
   PYTHON = "python",
-  HTML = "html",
-  JSX = "jsx",
-  TSX = "tsx",
+  // HTML = "html",
+  // JSX = "jsx",
+  // TSX = "tsx",
 }
 
 hljs.registerLanguage(LANGUAGE.JS, javascript);
 hljs.registerLanguage(LANGUAGE.PYTHON, python);
 hljs.registerLanguage(LANGUAGE.TS, typescript);
-hljs.registerLanguage(LANGUAGE.HTML, xml);
+// hljs.registerLanguage(LANGUAGE.HTML, xml);
 
 const equals = (input: string): string => {
   const regex = /(\s)=(\s)/g;
@@ -64,19 +65,19 @@ export const highlightFunctions: Record<LANGUAGE, (code: string) => ReactNode> =
       LanguageDemo(hljs.highlight(code, { language: LANGUAGE.TS }).value),
     [LANGUAGE.PYTHON]: (code: string) =>
       LanguageDemo(hljs.highlight(code, { language: LANGUAGE.PYTHON }).value),
-    [LANGUAGE.HTML]: (code: string) =>
-      LanguageDemo(hljs.highlight(code, { language: LANGUAGE.HTML }).value),
-    [LANGUAGE.JSX]: (code: string) =>
-      LanguageDemo(hljs.highlight(code, { language: LANGUAGE.JS }).value), // Using JS for JSX
-    [LANGUAGE.TSX]: (code: string) =>
-      LanguageDemo(hljs.highlight(code, { language: LANGUAGE.TS }).value), // Using TS for TSX
+    // [LANGUAGE.HTML]: (code: string) =>
+    //   LanguageDemo(hljs.highlight(code, { language: LANGUAGE.HTML }).value),
+    // [LANGUAGE.JSX]: (code: string) =>
+    //   LanguageDemo(hljs.highlight(code, { language: LANGUAGE.JS }).value), // Using JS for JSX
+    // [LANGUAGE.TSX]: (code: string) =>
+    //   LanguageDemo(hljs.highlight(code, { language: LANGUAGE.TS }).value), // Using TS for TSX
   };
 
 export const samples = {
   [LANGUAGE.JS]: raw_samples.javascript,
   [LANGUAGE.TS]: raw_samples.typescript,
   [LANGUAGE.PYTHON]: raw_samples.python,
-  [LANGUAGE.HTML]: raw_samples.html,
-  [LANGUAGE.JSX]: raw_samples.jsx,
-  [LANGUAGE.TSX]: raw_samples.tsx,
+  // [LANGUAGE.HTML]: raw_samples.html,
+  // [LANGUAGE.JSX]: raw_samples.jsx,
+  // [LANGUAGE.TSX]: raw_samples.tsx,
 };
