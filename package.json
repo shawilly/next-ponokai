@@ -12,7 +12,7 @@
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start",
-    "post-install": "patch-package"
+    "post-install": "npx patch-package"
   },
   "dependencies": {
     "@libsql/client": "^0.6.0",
@@ -28,6 +28,7 @@
     "highlight.js": "^11.9.0",
     "marked": "^12.0.2",
     "next": "^14.2.1",
+    "patch-package": "^8.0.0",
     "react": "^18.3.0",
     "react-dom": "^18.3.0",
     "react-select": "^5.8.0",
