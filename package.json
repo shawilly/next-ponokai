@@ -12,7 +12,7 @@
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start",
-    "post-install": "npx patch-package"
+    "postinstall": "npx patch-package"
   },
   "dependencies": {
     "@libsql/client": "^0.6.0",
