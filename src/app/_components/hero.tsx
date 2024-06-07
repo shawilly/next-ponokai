@@ -86,30 +86,9 @@ const Hero = (): JSX.Element => {
         <div className="font-jetbrains flex w-full flex-col items-start justify-center rounded-l-md rounded-r-md bg-black p-4">
           <div className="text-bg1 w-full place-items-end pb-4">
             <Select
-              defaultInputValue={language}
               options={options}
               isSearchable
               onChange={handleLanguageChange}
-              styles={{
-                control: (styles) => ({
-                  ...styles,
-                  backgroundColor: "#181a1c",
-                  color: "black",
-                }),
-                option: (styles, { isFocused }) => ({
-                  ...styles,
-                  backgroundColor: isFocused ? "#818f80" : "#1a1a1a",
-                  color: "#f2f2f3",
-                }),
-                singleValue: (styles) => ({
-                  ...styles,
-                  color: "#f2f2f3",
-                }),
-                input: (styles) => ({
-                  ...styles,
-                  color: "#f2f2f3",
-                }),
-              }}
             />
           </div>
           <Editor
