@@ -4,7 +4,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "install": "npm install && patch-package",
     "build": "next build",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
@@ -12,7 +11,8 @@
     "db:studio": "drizzle-kit studio",
     "dev": "next dev",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "post-install": "patch-package"
   },
   "dependencies": {
     "@libsql/client": "^0.6.0",
