@@ -2,3 +2,89 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Ponokai Highlight.js Theme */
+.hljs {
+  color: #f2f2f3;
+  background: #2b2d3a;
+}
+
+/* Comments - grey, italic */
+.hljs-comment,
+.hljs-quote {
+  color: #c4c6cf;
+  font-style: italic;
+}
+
+/* Keywords, Statements - red */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-deletion,
+.hljs-tag {
+  color: #ff8c9a;
+}
+
+/* Strings - yellow */
+.hljs-string,
+.hljs-doctag,
+.hljs-regexp,
+.hljs-template-tag,
+.hljs-template-variable {
+  color: #f8e7b0;
+}
+
+/* Functions - green */
+.hljs-section,
+.hljs-title,
+.hljs-title.function_,
+.hljs-name {
+  color: #b4e49a;
+}
+
+/* Types, Classes - blue */
+.hljs-type,
+.hljs-title.class_,
+.hljs-built_in {
+  color: #98d4e7;
+}
+
+/* Identifiers, Constants, Variables - orange */
+.hljs-variable,
+.hljs-attr,
+.hljs-params,
+.hljs-attribute {
+  color: #f3bb9a;
+}
+
+/* Numbers, Special - purple */
+.hljs-number,
+.hljs-literal,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link,
+.hljs-meta,
+.hljs-selector-id,
+.hljs-selector-class {
+  color: #bdb2ff;
+}
+
+/* Operators - red */
+.hljs-operator,
+.hljs-punctuation {
+  color: #ff8c9a;
+}
+
+/* Emphasis */
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+/* Addition */
+.hljs-addition {
+  color: #b4e49a;
+  background-color: rgba(180, 228, 154, 0.1);
+}

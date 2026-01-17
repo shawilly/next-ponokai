@@ -11,24 +11,28 @@ const installMethods: Record<
   lazy: {
     name: "lazy.nvim",
     editor: "Neovim",
-    code: `-- Add to your lazy.nvim plugins
-{
+    code: `{
   "shawilly/ponokai",
   lazy = false,
   priority = 1000,
   config = function()
-    vim.cmd([[colorscheme ponokai]])
+    vim.g.ponokai_transparent_background = "1"
+    vim.g.ponokai_enable_italic = "1"
+    vim.g.ponokai_style = "kitty"
+    vim.cmd.colorscheme("ponokai")
   end,
 }`,
   },
   packer: {
     name: "packer.nvim",
     editor: "Neovim",
-    code: `-- Add to your packer config
-use {
+    code: `use {
   'shawilly/ponokai',
   config = function()
-    vim.cmd([[colorscheme ponokai]])
+    vim.g.ponokai_transparent_background = "1"
+    vim.g.ponokai_enable_italic = "1"
+    vim.g.ponokai_style = "kitty"
+    vim.cmd.colorscheme("ponokai")
   end
 }`,
   },
@@ -39,20 +43,24 @@ use {
 Plug 'shawilly/ponokai'
 
 " Then add after plug#end()
+set termguicolors
+let g:ponokai_style = 'kitty'
+let g:ponokai_better_performance = 1
 colorscheme ponokai`,
   },
   manual: {
     name: "Manual",
     editor: "Vim/Neovim",
-    code: `# Clone the repository
-git clone https://github.com/shawilly/ponokai \\
-  ~/.vim/pack/plugins/start/ponokai
+    code: `# Create directory and clone
+mkdir -p ~/.vim/pack/colors/opt
+git clone --depth 1 \\
+  https://github.com/shawilly/ponokai.git \\
+  ~/.vim/pack/colors/opt/ponokai
 
-# Or for Neovim
-git clone https://github.com/shawilly/ponokai \\
-  ~/.local/share/nvim/site/pack/plugins/start/ponokai
-
-# Add to your config
+# Add to your vimrc
+packadd! ponokai
+set termguicolors
+let g:ponokai_style = 'kitty'
 colorscheme ponokai`,
   },
 };
