@@ -24,8 +24,6 @@ const options = Object.values(LANGUAGE).map(
   }),
 );
 
-console.log(options);
-
 const Hero = (): JSX.Element => {
   const [language, setLanguage] = useState(LANGUAGE.TS);
   const [languageDemo, setDemo] = useState(samples[LANGUAGE.TS]);
