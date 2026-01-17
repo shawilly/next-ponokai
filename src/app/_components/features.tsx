@@ -118,8 +118,7 @@ const Features = () => {
           className="mb-16 text-center"
         >
           <span className="font-jetbrains mb-4 inline-block text-sm text-pgreen">
-            {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
-            // Features
+            {"// Features"}
           </span>
           <h2 className="mb-4 text-3xl font-bold text-fg sm:text-4xl">
             Why choose <span className="text-pred">Pono</span>

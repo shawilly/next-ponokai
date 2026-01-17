@@ -78,8 +78,7 @@ const ColorPalette = () => {
           className="mb-16 text-center"
         >
           <span className="font-jetbrains mb-4 inline-block text-sm text-ppurple">
-            {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
-            // Color Palette
+            {"// Color Palette"}
           </span>
           <h2 className="mb-4 text-3xl font-bold text-fg sm:text-4xl">
             Soft pastels, <span className="text-pblue">easy on the eyes</span>

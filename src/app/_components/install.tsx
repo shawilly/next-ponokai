@@ -86,8 +86,7 @@ const Install = () => {
           className="mb-12 text-center"
         >
           <span className="font-jetbrains mb-4 inline-block text-sm text-porange">
-            {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
-            // Installation
+            {"// Installation"}
           </span>
           <h2 className="mb-4 text-3xl font-bold text-fg sm:text-4xl">
             Get started in <span className="text-pgreen">seconds</span>
